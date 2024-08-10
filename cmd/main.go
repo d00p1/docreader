@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"log/slog"
+
+	"github.com/d00p1/docreader/config"
+)
 
 func main() {
-	fmt.Println("testy")
+	cfg := config.Load()
+
+	log := slog.Default()
+
+	log.Info("logger system complite", slog.String("env", cfg.Env))
 }
